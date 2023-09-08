@@ -1,10 +1,10 @@
 {
-  "name": "goblin-game",
+  "name": "popovers",
   "version": "1.0.0",
   "repository": {
-    "url": "git@github.com:OGsplendid/goblin-game"
+    "url": "git@github.com:OGsplendid/popovers"
   },
-  "description": "just a simple game",
+  "description": "popovers",
   "main": "index.js",
   "author": "Vladimir Sivakov <vladimir.a.sivakov@gmail.com>",
   "license": "MIT",

@@ -10,12 +10,6 @@ export default class Widget {
     return `
     <div class="container">
       <button class="button" type="button">Click to toggle popover</button>
-      <div class="popup hidden">
-        <div class="title-container">
-          <span class="popup-title">Popover title</span>
-        </div>
-        <span class="popup-text">Some tooltip here</span>
-      </div>
     </div>
     `;
   }
@@ -32,6 +26,17 @@ export default class Widget {
     return '.container';
   }
 
+  static get tooltip() {
+    return `
+      <div class="popup hidden">
+        <div class="title-container">
+          <span class="popup-title">Popover title</span>
+        </div>
+        <span class="popup-text">Some tooltip here</span>
+      </div>
+    `;
+  }
+
   bindToDOM() {
     this.parentEl.innerHTML = Widget.markup;
 
@@ -46,9 +51,17 @@ export default class Widget {
     if (!e.target.classList.contains('button')) {
       return;
     }
-    const { top } = this.button.getBoundingClientRect();
-    const popupBottom = top - 70;
-    this.popup.style.bottom = `${popupBottom}px`;
-    this.popup.classList.toggle('hidden');
+    if (document.querySelector('.popup')) {
+      document.querySelector('.popup').remove();
+      return;
+    }
+    const button = this.parentEl.querySelector('.button');
+    const { top, left } = button.getBoundingClientRect();
+    document.body.insertAdjacentHTML('afterbegin', Widget.tooltip);
+    const popup = document.querySelector('.popup');
+    popup.style.top = `${top - 100}px`;
+    console.log(button.offsetWidth, popup.style);
+    popup.style.left = `${left + button.offsetWidth / 2 - 120}px`;
+    popup.classList.toggle('hidden');
   }
 }
