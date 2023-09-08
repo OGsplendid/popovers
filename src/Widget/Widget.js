@@ -60,7 +60,6 @@ export default class Widget {
     document.body.insertAdjacentHTML('afterbegin', Widget.tooltip);
     const popup = document.querySelector('.popup');
     popup.style.top = `${top - 100}px`;
-    console.log(button.offsetWidth, popup.style);
     popup.style.left = `${left + button.offsetWidth / 2 - 120}px`;
     popup.classList.toggle('hidden');
   }

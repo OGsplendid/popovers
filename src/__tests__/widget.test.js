@@ -9,6 +9,7 @@ test('widget remove hidden class', () => {
   widget.bindToDOM();
 
   widget.button.click();
+  const popup = document.querySelector('.popup');
 
-  expect(widget.popup.classList.contains('hidden')).toEqual(false);
+  expect(popup.classList.contains('hidden')).toEqual(false);
 });
