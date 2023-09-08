@@ -8,19 +8,15 @@
 }
 
 .container {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-left: 3px solid #dcd5d5;
-  border-top: 3px solid #dcd5d5;
-  width: 300px;
-  min-height: 80px;
-  margin-left: 200px;
-  margin-top: 140px;
+  width: 100%;
+  min-height: 400px;
 }
 
 .button {
+  position: relative;
   width: 210px;
   height: 45px;
   font-size: 18px;
